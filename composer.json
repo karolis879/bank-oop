@@ -1,0 +1,20 @@
+{
+    "name": "bank/oop",
+    "description": "Bank app made with oop",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bank\\": "app/",
+            "App\\DB\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "karolis879",
+            "email": "58052007+karolis879@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "ramsey/uuid": "^4.7"
+    }
+}
