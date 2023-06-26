@@ -1,7 +1,7 @@
 <h1>Create Racoon</h1>
 <form action="/racoon/store" method="post">
     <div>
-        <label for="name">Name</label>
+        <label for="nam2e">Name</label>
         <input type="text" name="name" id="name" required>
     </div>
     <div>

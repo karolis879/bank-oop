@@ -4,10 +4,10 @@ namespace Bank;
 
 use Bank\Controllers\RacoonController;
 use Bank\Controllers\HomeController;
+use Bank\Controllers\LoginController;
 
 class App
 {
-
     static public function start()
     {
         $url = explode('/', $_SERVER['REQUEST_URI']);
@@ -18,6 +18,24 @@ class App
 
     static private function router($url)
     {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == '') {
+            return (new HomeController)->index();
+        }
+        // Login
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'login') {
+            return (new LoginController)->index();
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 1 && $url[0] == 'login') {
+            return (new LoginController)->login($_POST);
+        }
+
+        // Auth middleware
+        if (!isset($_SESSION['email'])) {
+            header('Location: /login');
+            die;
+        }
+        // Auth middleware END
+
         // Racoon
         if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'racoon') {
             return (new RacoonController)->index();
@@ -41,7 +59,6 @@ class App
             return (new RacoonController)->destroy($url[2]);
         }
         // Racoon END
-
 
         else {
             return self::view('404', ['pageTitle' => '404']);
