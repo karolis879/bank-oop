@@ -1,12 +1,99 @@
 @import 'bootstrap/scss/bootstrap';
 
-.container {
+.containeris {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    .form-containeris {
+
+        text-align: center;
+        margin-bottom: 100px;
+
+
+        form {
+            padding: 10px;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
 
-.form-container {
+button {
+    width: 100%;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+
+
+    .form-container2 {
+        text-align: center;
+    }
+}
+
+.acc-list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    gap: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+
+    a {
+        text-decoration: none;
+        color: black;
+
+        .nav-bar a:hover {
+            background-color: grey;
+            text-decoration: underline;
+
+
+
+            .container a {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                color: white;
+                text-decoration: none;
+                border-radius: 20px;
+                padding: 10px 20px;
+                margin-left: 10px;
+
+                button {
+                    border-radius: 10px;
+                }
+
+            }
+        }
+    }
+}
+
+.delete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    margin-top: 100px;
+}
+
+.edit-bank {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
 }

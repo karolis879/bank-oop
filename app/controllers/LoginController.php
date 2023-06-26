@@ -32,13 +32,13 @@ class LoginController
             if ($user['email'] == $email && $user['password'] == md5($password)) {
                 $_SESSION['email'] = $email;
                 $_SESSION['name'] = $user['name'];
-                Messages::addMessage('success', 'You are logged in');
+                Messages::addMessage('success', 'Sveiki prisijungę!');
                 header('Location: /');
                 die;
             }
         }
 
-        Messages::addMessage('danger', 'Wrong email or password');
+        Messages::addMessage('danger', 'Neteisingas El. paštas arba slaptažodis');
         OldData::flashData($data);
         header('Location: /login');
         die;
@@ -48,7 +48,7 @@ class LoginController
     {
         unset($_SESSION['email']);
         unset($_SESSION['name']);
-        Messages::addMessage('success', 'You are logged out');
+        Messages::addMessage('success', 'Sėkmingai atsijungėte!');
         header('Location: /');
         exit;
     }

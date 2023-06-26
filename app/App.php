@@ -2,7 +2,7 @@
 
 namespace Bank;
 
-use Bank\Controllers\RacoonController;
+use Bank\Controllers\SaskaitosController;
 use Bank\Controllers\HomeController;
 use Bank\Controllers\LoginController;
 use Bank\Controllers\ColorController;
@@ -41,29 +41,29 @@ class App
         }
         // Auth middleware END
 
-        // Racoon
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'racoon') {
-            return (new RacoonController)->index();
+        // saskaitos
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'saskaitos') {
+            return (new saskaitosController)->index();
         }
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'racoon' && $url[1] == 'create') {
-            return (new RacoonController)->create();
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'saskaitos' && $url[1] == 'create') {
+            return (new saskaitosController)->create();
         }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 2 && $url[0] == 'racoon' && $url[1] == 'store') {
-            return (new RacoonController)->store($_POST);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 2 && $url[0] == 'saskaitos' && $url[1] == 'store') {
+            return (new saskaitosController)->store($_POST);
         }
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'racoon' && $url[1] == 'edit') {
-            return (new RacoonController)->edit($url[2]);
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'saskaitos' && $url[1] == 'edit') {
+            return (new saskaitosController)->edit($url[2]);
         }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'racoon' && $url[1] == 'update') {
-            return (new RacoonController)->update($url[2], $_POST);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'saskaitos' && $url[1] == 'update') {
+            return (new saskaitosController)->update($url[2], $_POST);
         }
-        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'racoon' && $url[1] == 'delete') {
-            return (new RacoonController)->delete($url[2]);
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 3 && $url[0] == 'saskaitos' && $url[1] == 'delete') {
+            return (new saskaitosController)->delete($url[2]);
         }
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'racoon' && $url[1] == 'destroy') {
-            return (new RacoonController)->destroy($url[2]);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 3 && $url[0] == 'saskaitos' && $url[1] == 'destroy') {
+            return (new saskaitosController)->destroy($url[2]);
         }
-        // Racoon END
+        // saskaitos END
 
          // Colors
          if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'colors') {

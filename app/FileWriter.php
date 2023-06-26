@@ -25,12 +25,33 @@ class FileWriter implements DataBase
         file_put_contents(__DIR__ . '/../data/' . $this->filename . '.json', json_encode($this->data));
     }
 
+    public static function generateIban()
+    {
+
+        $bankAccountNumber = sprintf('%016d', mt_rand(0, 99999999999999));
+        $countryCode = 'LT';
+        $iban = $countryCode . '00' . $bankAccountNumber;
+        $ibanDigits = str_split($iban);
+        $checksum = 0;
+        foreach ($ibanDigits as $digit) {
+            $checksum = ($checksum * 10 + intval($digit)) % 97;
+        }
+        $checksumDigits = sprintf('%02d', 98 - $checksum);
+        $iban = substr_replace($iban, $checksumDigits, 2, 2);
+
+        return $iban;
+    }
+
 
     public function create(array $userData): void
     {
         // $id = Uuid::uuid4()->toString();
         $id = rand(10000,99999);
         $userData['id'] = $id;
+        $accountNumber = Filewriter::generateIban();
+        $userData['accountNumber'] = $accountNumber;
+        $balance = 0;
+        $userData['balance'] = $balance;
         $this->data[] = $userData;
     }
 

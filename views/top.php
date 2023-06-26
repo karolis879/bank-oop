@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= URL ?>/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker:regular" rel="stylesheet" />
     <script src="<?= URL ?>/app.js" defer></script>
 
 
