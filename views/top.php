@@ -7,3 +7,7 @@
     <title><?= $pageTitle ?? 'untitled' ?></title>
 </head>
 <body>
+<?php if(!isset($inLogin)): ?>
+<?php require __DIR__ . '/nav.php' ?>
+<?php endif ?>
+<?php require_once 'Messages.php' ?>

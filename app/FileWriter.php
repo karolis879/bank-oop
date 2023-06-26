@@ -59,7 +59,7 @@ class FileWriter implements DataBase
     public function show(int $userId): array
     {
         foreach ($this->data as $key => $value) {
-            if ($value['id'] = $userId) {
+            if ($value['id'] == $userId) {
                 return $this->data[$key];
             }
         }

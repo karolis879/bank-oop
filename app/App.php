@@ -12,7 +12,8 @@ class App
     {
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
-
+        // echo "<pre>";
+        // echo $_SESSION['email'];
         return self::router($url);
     }
 
@@ -27,6 +28,9 @@ class App
         }
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 1 && $url[0] == 'login') {
             return (new LoginController)->login($_POST);
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && count($url) == 1 && $url[0] == 'logout') {
+            return (new LoginController)->logout($_POST);
         }
 
         // Auth middleware
