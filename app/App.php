@@ -5,6 +5,7 @@ namespace Bank;
 use Bank\Controllers\RacoonController;
 use Bank\Controllers\HomeController;
 use Bank\Controllers\LoginController;
+use Bank\Controllers\ColorController;
 
 class App
 {
@@ -63,6 +64,14 @@ class App
             return (new RacoonController)->destroy($url[2]);
         }
         // Racoon END
+
+         // Colors
+         if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 1 && $url[0] == 'colors') {
+            return (new ColorController)->index();
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && count($url) == 2 && $url[0] == 'colors' && $url[1] == 'list') {
+            return (new ColorController)->list();
+        }
 
         else {
             return self::view('404', ['pageTitle' => '404']);

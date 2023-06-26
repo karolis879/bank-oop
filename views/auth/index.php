@@ -1,6 +1,28 @@
-<h1>Login</h1>
+
+
+<div class="container">
+    <div class="form-container">
+        <h1>Login</h1>
+        <form action="<?= '/login' ?>" method="post">
+            <input type="email" name="email" placeholder="Username" value="<?= $old['email'] ?? '' ?>">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Login</h1>
 <form action="<?= '/login' ?>" method="post">
     <input type="email" name="email" placeholder="Username" value="<?= $old['email'] ?? '' ?>">
     <input type="password" name="password" placeholder="Password">
     <button type="submit">Login</button>
-</form>
+</form>  -->
