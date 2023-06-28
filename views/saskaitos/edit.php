@@ -4,7 +4,6 @@
         <div class="mb-3">
             <label for="name">Name</label>
             <?= $saskaitos['name'] ?>
-            <input type="hidden" name="name" value="<?= $saskaitos['name'] ?>">
         </div>
         <div class="mb-3">
             <label for="lastName">Pavardė</label>
@@ -28,11 +27,11 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1">Funds</label>
-            <input class="form-control" type="number" name="balance" id="exampleFormControlInput1" placeholder="Enter funds">
+            <input class="form-control" type="number" name="funds" id="exampleFormControlInput1" placeholder="Enter funds">
         </div>
         <div style="display: flex; gap: 5px">
-            <button style="padding: 10px; display: inline-block" class="btn btn-secondary" type="submit" class="mb-3">prideti</button>
-            <button class="btn btn-secondary" type="submit" class="mb-3">atimti</button>
+            <button style="padding: 10px; display: inline-block" name="addFunds" value="1" class="btn btn-secondary" type="submit" class="mb-3">prideti</button>
+            <button class="btn btn-secondary" type="submit" name="removeFunds" value="1" class="mb-3">atimti</button>
         </div>
     </form>
 </div>

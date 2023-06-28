@@ -14,7 +14,7 @@ class App
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
         // echo "<pre>";
-        // echo $_SESSION['email'];
+        // print_r ($_POST);
         return self::router($url);
     }
 
@@ -91,5 +91,6 @@ class App
         require __DIR__ . '/../views/bottom.php';
 
         return ob_get_clean();
+        
     }
 }

@@ -8,11 +8,11 @@
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Pavardė</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="lastName" rows="3" placeholder="Įveskite pavardę" required></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="lastName" rows="1" placeholder="Įveskite pavardę" required></textarea>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Asmens kodas</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="PersonId" rows="3" placeholder="Įveskite asmens kodą" required></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="PersonId" rows="1" placeholder="Įveskite asmens kodą" required></textarea>
             </div>
             <div>
                 <button class="btn btn-dark" type="submit">Sukurti</button>

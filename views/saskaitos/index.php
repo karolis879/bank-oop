@@ -3,8 +3,14 @@
         <h1>Sąskaitų sąrašas</h1>
     </div>
     <?php if (empty($saskaitoss)) : ?>
-        <p>No raccoons found.</p>
+        <p>Nėra saskaitų.</p>
     <?php else : ?>
+        <?php
+        // Sort the account list by last name
+        usort($saskaitoss, function ($a, $b) {
+            return strcmp($a['lastName'], $b['lastName']);
+        });
+        ?>
         <table class="table table-dark table-striped">
             <thead>
                 <tr>

@@ -53,6 +53,7 @@ class FileWriter implements DataBase
         $balance = 0;
         $userData['balance'] = $balance;
         $this->data[] = $userData;
+        
     }
 
 

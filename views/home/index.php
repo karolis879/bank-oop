@@ -124,7 +124,7 @@
     <span></span>
     <span></span>
     <span></span>
-    <h1 style="font-family: 'Permanent Marker'; font-size: 200px;">Let it rain bank</h1>
+    <h1 style="font-family: 'Permanent Marker'; font-size: 200px; margin-bottom: 50px">Let it rain bank</h1>
     <span></span>
     <span></span>
     <span></span>
