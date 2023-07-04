@@ -8,7 +8,7 @@
         <?php
         // Sort the account list by last name
         usort($saskaitoss, function ($a, $b) {
-            return strcmp($a['lastName'], $b['lastName']);
+            return strcmp($a['last_name'], $b['last_name']);
         });
         ?>
         <table class="table table-dark table-striped">
@@ -27,10 +27,10 @@
                 <?php foreach ($saskaitoss as $saskaitos) : ?>
                     <tr>
                         <th scope="row"><?= $saskaitos['id'] ?></th>
-                        <td><?= $saskaitos['name'] ?></td>
-                        <td><?= $saskaitos['lastName'] ?></td>
-                        <td><?= $saskaitos['PersonId'] ?></td>
-                        <td><?= $saskaitos['accountNumber'] ?></td>
+                        <td><?= $saskaitos['first_name'] ?></td>
+                        <td><?= $saskaitos['last_name'] ?></td>
+                        <td><?= $saskaitos['personal_id'] ?></td>
+                        <td><?= $saskaitos['iban'] ?></td>
                         <td><?= $saskaitos['balance'] ?></td>
                         <td>
                             <div style="display: flex; gap:20px">

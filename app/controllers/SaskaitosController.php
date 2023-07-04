@@ -11,7 +11,7 @@ class saskaitosController
 {
     public function index()
     {
-        $data = new FileWriter('saskaitos');
+        $data = App::get('Saskaitos');
         return App::view('saskaitos/index', [
             'pageTitle' => 'saskaitoss list',
             'saskaitoss' => $data->showall(),
@@ -27,7 +27,7 @@ class saskaitosController
 
     public function edit(int $id)
     {
-        $data = new FileWriter('saskaitos');
+        $data = App::get('Saskaitos');
         $saskaitos = $data->show($id);
 
         return App::view('saskaitos/edit', [
@@ -38,7 +38,7 @@ class saskaitosController
 
     public function update(int $id, array $request)
     {
-        $data = new FileWriter('saskaitos');
+        $data = App::get('Saskaitos');
         $account = $data->show($id);
         $funds = $request['funds'];
 
@@ -71,14 +71,14 @@ class saskaitosController
 
     public function delete(int $id)
     {
-        $data = new FileWriter('saskaitos');
+        $data = App::get('Saskaitos');
         $account = $data->show($id);
         if ($account['balance'] > 0) {
             Messages::addMessage('danger', 'negalima');
             header('Location: /saskaitos');
             return;
         }
-        $saskaitos = (new FileWriter('saskaitos'))->show($id);
+        $saskaitos = (App::get('Saskaitos'))->show($id);
         return App::view('saskaitos/delete', [
             'pageTitle' => 'Confirm saskaitos delete',
             'saskaitos' => $saskaitos,
@@ -87,7 +87,7 @@ class saskaitosController
 
     public function destroy(int $id)
     {
-        $data = new FileWriter('saskaitos');
+        $data = App::get('Saskaitos');
         $data->delete($id);
         Messages::addMessage('success', 'saskaitos deleted');
 
@@ -113,14 +113,14 @@ class saskaitosController
             $error2 = 1;
         }
 
-        $data = new FileWriter('saskaitos');
+        $data = App::get('Saskaitos');
         $accounts = $data->showall();
-        if (!preg_match('/^(3[0-9]{2}|4[0-9]{2}|6[0-9]{2}|5[0-9]{2})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\d{4}$/', $PersonId)){
+        if (!preg_match('/^(3[0-9]{2}|4[0-9]{2}|6[0-9]{2}|5[0-9]{2})(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])\d{4}$/', $PersonId)) {
             Messages::addMessage('danger', 'Personal code is incorrect');
             $error3 = 1;
         } else {
             foreach ($accounts as $account) {
-                if ($account['PersonId'] === $PersonId) {
+                if ($account['personal_id'] === $PersonId) {
                     Messages::addMessage('warning', 'Vartotojas su tokiu asmens kodu jau įvestas.');
                     OldData::flashData($request);
                     header("Location: /saskaitos/create");
@@ -128,8 +128,8 @@ class saskaitosController
                 }
             }
         }
-      
-    
+
+
 
         if ($error1 || $error2 || $error3) {
             OldData::flashData($request);
@@ -139,9 +139,9 @@ class saskaitosController
 
         $newAccount = [
             'id' => $id,
-            'name' => $name,
-            'lastName' => $lastName,
-            'PersonId' => $PersonId,
+            'first_name' => $name,
+            'last_name' => $lastName,
+            'personal_id' => $PersonId,
             'iban' => FileWriter::generateIban(),
             'balance' => 0
         ];

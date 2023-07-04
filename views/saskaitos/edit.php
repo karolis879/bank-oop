@@ -2,23 +2,23 @@
     <h1>Atnaujinti saskaitą</h1>
     <form action="/saskaitos/update/<?= $saskaitos['id'] ?>" method="post">
         <div class="mb-3">
-            <label for="name">Name</label>
-            <?= $saskaitos['name'] ?>
+            <label for="first_name">Name</label>
+            <?= $saskaitos['first_name'] ?>
         </div>
         <div class="mb-3">
-            <label for="lastName">Pavardė</label>
-            <?= $saskaitos['lastName'] ?>
-            <input type="hidden" name="lastName" value="<?= $saskaitos['lastName'] ?>">
+            <label for="last_name">Pavardė</label>
+            <?= $saskaitos['last_name'] ?>
+            <input type="hidden" name="last_name" value="<?= $saskaitos['last_name'] ?>">
         </div>
         <div class="mb-3">
-            <label for="accountNumber">Sąskaitos numeris</label>
-            <?= $saskaitos['accountNumber'] ?>
-            <input type="hidden" name="accountNumber" value="<?= $saskaitos['accountNumber'] ?>">
+            <label for="iban">Sąskaitos numeris</label>
+            <?= $saskaitos['iban'] ?>
+            <input type="hidden" name="iban" value="<?= $saskaitos['iban'] ?>">
         </div>
         <div class="mb-3">
-            <label for="PersonalId">Asmens kodas</label>
-            <?= $saskaitos['PersonId'] ?>
-            <input type="hidden" name="PersonId" value="<?= $saskaitos['PersonId'] ?>">
+            <label for="personal_id">Asmens kodas</label>
+            <?= $saskaitos['personal_id'] ?>
+            <input type="hidden" name="personal_id" value="<?= $saskaitos['personal_id'] ?>">
         </div>
         <div class="mb-3">
             <label for="description">Likutis</label>

@@ -6,17 +6,29 @@ use Bank\Controllers\SaskaitosController;
 use Bank\Controllers\HomeController;
 use Bank\Controllers\LoginController;
 use Bank\Controllers\ColorController;
+use Bank\DatabaseWriter;
 
 class App
 {
-    static public function start()
+    const DB = 'database';
+
+    static public function start() 
     {
         $url = explode('/', $_SERVER['REQUEST_URI']);
         array_shift($url);
-        // echo "<pre>";
-        // print_r ($_POST);
         return self::router($url);
     }
+
+    static public function get($table)
+    {
+        if (self::DB == 'file') {
+            return new FileWriter($table);
+        }
+        elseif (self::DB == 'database') {
+            return new DatabaseWriter($table);
+        }
+    }
+
 
     static private function router($url)
     {

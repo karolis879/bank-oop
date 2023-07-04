@@ -28,14 +28,23 @@ class LoginController
 
         $users = (new FileWriter('users'))->showAll();
 
-        foreach ($users as $user) {
-            if ($user['email'] == $email && $user['password'] == md5($password)) {
-                $_SESSION['email'] = $email;
-                $_SESSION['name'] = $user['name'];
-                Messages::addMessage('success', 'Sveiki prisijungę!');
-                header('Location: /');
-                die;
-            }
+        // foreach ($users as $user) {
+        //     if ($user['email'] == $email && $user['password'] == md5($password)) {
+        //         $_SESSION['email'] = $email;
+        //         $_SESSION['name'] = $user['name'];
+        //         Messages::addMessage('success', 'Sveiki prisijungę!');
+        //         header('Location: /');
+        //         die;
+        //     }
+        // }
+
+        $user = App::get('users')->getUserByEmailAndPass($email, $password);
+        if ($user) {
+            $_SESSION['email'] = $email;
+            $_SESSION['name'] = $user['name'];
+            Messages::addMessage('success', 'Jūs prisijungėte');
+            header('Location: /');
+            die;
         }
 
         Messages::addMessage('danger', 'Neteisingas El. paštas arba slaptažodis');

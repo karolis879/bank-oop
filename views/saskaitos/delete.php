@@ -3,7 +3,7 @@
         <h5 class="card-header">Patvirtinti sąskaitos trinimą</h5>
         <div class="card-body">
             <h5 class="card-title">Ar tikrai norite ištrint šią sąskaitą?</h5>
-            <h2><?= $saskaitos['name'] ?></h2>
+            <h2><?= $saskaitos['first_name'] ?></h2>
             
             <form action="/saskaitos/destroy/<?= $saskaitos['id'] ?>" method="post">
                 <div>
